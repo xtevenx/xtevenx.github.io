@@ -2,8 +2,8 @@ A well designed website appears to be quite popular among the online programming
 demonstrates basic knowledge of the usage of braces, carets, parentheses and other enclosing 
 punctuation.
 
-However, I have not the time or the patience (or probably the skill) to design one and this 
-pre-built will have to suffice for now...
+However, I have neither the time nor the patience (and probably not the skill either) to design 
+one so this pre-built will have to suffice for now...
 
 Projects
 --------
@@ -26,6 +26,10 @@ Projects
 [`Onnch`](https://github.com/steven-xia/Onnch)
 [<sub>![`last_commit`](https://img.shields.io/github/last-commit/steven-xia/Onnch?logo=github)</sub>](https://github.com/steven-xia/Onnch/commits/master)
     ⯈ A Connect 4 bot specializing in short time control games.
+
+[`connect4`](https://github.com/steven-xia/connect4)
+[<sub>![`last_commit`](https://img.shields.io/github/last-commit/steven-xia/connect4?logo=github)</sub>](https://github.com/steven-xia/connect4/commits/master)
+    ⯈ A Connect 4 bot written in impure Python.
 
 [`othello-bot`](https://github.com/steven-xia/othello-bot)
 [<sub>![`last_commit`](https://img.shields.io/github/last-commit/steven-xia/othello-bot?logo=github)</sub>](https://github.com/steven-xia/othello-bot/commits/master)
