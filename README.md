@@ -1,9 +1,3 @@
----
-button_link: https://github.com/steven-xia
-button_text: View Profile
----
-
-
 A well designed website appears to be quite popular among the online programming community as it 
 demonstrates basic knowledge of the usage of braces, carets, parentheses and other enclosing 
 punctuation.
