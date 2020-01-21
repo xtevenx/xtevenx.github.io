@@ -2,7 +2,7 @@ A well designed website appears to be quite popular among the online programming
 demonstrates basic knowledge of the usage of braces, carets, parentheses and other enclosing 
 punctuation.
 
-However, I have neither the time nor the patience (and probably not the skill either) to design 
+However, I have neither the time nor the inclination (and probably not the skill either) to design 
 one so this pre-built will have to suffice for now...
 
 Projects
