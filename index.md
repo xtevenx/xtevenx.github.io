@@ -21,6 +21,10 @@ Projects
     ⯈ My second attempt to make a bot for the game of Othello. This uses much more sophisticated 
     algorithms than my first.
 
+[`planet-wars`](https://github.com/steven-xia/planet-wars)
+[<sub>![`last_commit`](https://img.shields.io/github/last-commit/steven-xia/planet-wars?logo=github)</sub>](https://github.com/steven-xia/planet-wars/commits/master)
+    ⯈ My bot for playing Planet Wars (from the Google AI Challenge 2010).
+
 [`planet-wars-starterpackage`](https://steven-xia.github.io/planet-wars-starterpackage/)
 [<sub>![`last_commit`](https://img.shields.io/github/last-commit/steven-xia/planet-wars-starterpackage?logo=github)</sub>](https://github.com/steven-xia/planet-wars-starterpackage/commits/master)
     ⯈ A round-up of all you need to start the Planet Wars challenge originally run by the 
