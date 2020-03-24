@@ -1,30 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en-US' }}">
+<html lang="en-US">
 
 <head>
-    {% if site.google_analytics %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}');
-    </script>
-    {% endif %}
-
     <title>Steven Xia</title>
-
-    {% seo %}
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -34,12 +18,17 @@
         <div class="fade-up-1"><h1 class="project-name">Steven Xia</h1></div>
         <div class="fade-up-2"><h2 class="project-tagline">Failing at programming with exquisite style.</h2></div>
 
-        <div class="fade-up-3"><a href="{{ page.button_link }}" class="btn">{{ page.button_text }}</a></div>
+        <div class="fade-up-3"><a href="/" class="btn">Go Home</a></div>
     </header>
 </div>
 
 <main id="content" class="main-content" role="main">
-    <div class="fade-up-4">{{ content }}</div>
+    <div class="fade-up-4">
+        <p>
+            <code class="language-plaintext highlighter-rouge">Error 404</code>
+            , the web page you were looking for was not found.
+        </p>
+    </div>
 
     <div class="fade-up-5">
         <footer class="site-footer">
