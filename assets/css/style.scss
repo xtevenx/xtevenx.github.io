@@ -90,12 +90,6 @@ img:hover {
   }
 }
 
-.fade-up {
-  animation-name: fadeUp;
-  animation-fill-mode: both;
-  animation-duration: 1s;
-}
-
 .fade-up-1 {
   animation-name: fadeUp;
   animation-fill-mode: both;
@@ -122,6 +116,13 @@ img:hover {
   animation-fill-mode: both;
   animation-duration: 1s;
   animation-delay: 0.4s;
+}
+
+.fade-up-5 {
+  animation-name: fadeUp;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeDown {
