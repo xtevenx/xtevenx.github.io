@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+
+<head>
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
+    {% endif %}
+
+    <title>Steven Xia</title>
+
+    {% seo %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+</head>
+
+<body>
+
+<div class="fade-down">
+    <header class="page-header" role="banner">
+        <div class="fade-up-1"><h1 class="project-name">Steven Xia</h1></div>
+        <div class="fade-up-2"><h2 class="project-tagline">Failing at programming with exquisite style.</h2></div>
+
+        <div class="fade-up-3"><a href="{{ page.button_link }}" class="btn">{{ page.button_text }}</a></div>
+    </header>
+</div>
+
+<main id="content" class="main-content" role="main">
+    <div class="fade-up-4">
+        <p>
+            A well designed website appears to be quite popular among the online programming community as it
+            demonstrates basic knowledge of the usage of braces, carets, parentheses and other enclosing punctuation.
+        </p>
+
+        <p>
+            However, I have neither the time nor the inclination (and probably not the skill either) to design one so
+            this pre-built will have to suffice for now…
+        </p>
+
+        <h2 id="projects">Projects</h2>
+
+        <p>
+            <a href="https://github.com/steven-xia/lichess-bot">
+                <code class="language-plaintext highlighter-rouge">lichess-bot</code>
+            </a>
+            <code class="language-plaintext highlighter-rouge">[FORK]</code>
+            <a href="https://github.com/steven-xia/lichess-bot/commits/master">
+                <sub><img src="assets/loading-badge.svg" alt="`last_commit`"
+                          data-echo="https://img.shields.io/github/last-commit/steven-xia/lichess-bot?logo=github"/>
+                </sub>
+            </a>
+            ⯈ A bridge between Lichess API and chess engines.
+        </p>
+
+        <p>
+            <a href="https://github.com/steven-xia/Onnch">
+                <code class="language-plaintext highlighter-rouge">Onnch</code>
+            </a>
+            <a href="https://github.com/steven-xia/Onnch/commits/master">
+                <sub><img src="assets/loading-badge.svg" alt="`last_commit`"
+                          data-echo="https://img.shields.io/github/last-commit/steven-xia/Onnch?logo=github"/>
+                </sub>
+            </a>
+            ⯈ A Connect 4 bot specializing in short time control games.
+        </p>
+
+        <p>
+            <a href="https://github.com/steven-xia/othello-bot">
+                <code class="language-plaintext highlighter-rouge">othello-bot</code>
+            </a>
+            <a href="https://github.com/steven-xia/othello-bot/commits/master">
+                <sub><img src="assets/loading-badge.svg" alt="`last_commit`"
+                          data-echo="https://img.shields.io/github/last-commit/steven-xia/othello-bot?logo=github"/>
+                </sub>
+            </a>
+            ⯈ My second attempt to make a bot for the game of Othello. This uses much more sophisticated algorithms than
+            my first.
+        </p>
+
+        <p>
+            <a href="https://github.com/steven-xia/planet-wars">
+                <code class="language-plaintext highlighter-rouge">planet-wars</code>
+            </a>
+            <a href="https://github.com/steven-xia/planet-wars/commits/master">
+                <sub>
+                    <img src="assets/loading-badge.svg" alt="`last_commit`"
+                         data-echo="https://img.shields.io/github/last-commit/steven-xia/planet-wars?logo=github"/>
+                </sub>
+            </a>
+            ⯈ My bot for playing Planet Wars (from the Google AI Challenge 2010).
+        </p>
+
+        <p>
+            <a href="https://steven-xia.github.io/planet-wars-starterpackage/">
+                <code class="language-plaintext highlighter-rouge">planet-wars-starterpackage</code>
+            </a>
+            <a href="https://github.com/steven-xia/planet-wars-starterpackage/commits/master">
+                <sub>
+                    <img src="assets/loading-badge.svg" alt="`last_commit`"
+                         data-echo="https://img.shields.io/github/last-commit/steven-xia/planet-wars-starterpackage?logo=github"/>
+                </sub>
+            </a>
+            ⯈ A round-up of all you need to start the Planet Wars challenge originally run by the
+            University of Waterloo in 2010.
+        </p>
+
+        <p>
+            <a href="https://steven-xia.github.io/sjudge/">
+                <code class="language-plaintext highlighter-rouge">sjudge</code>
+            </a>
+            <a href="https://github.com/steven-xia/sjudge/commits/master">
+                <sub>
+                    <img src="assets/loading-badge.svg" alt="`last_commit`"
+                         data-echo="https://img.shields.io/github/last-commit/steven-xia/sjudge?logo=github"/>
+                </sub>
+            </a>
+            ⯈ A client-side programming judge made for use as a teaching tool.
+        </p>
+
+        <h3 id="archived">Archived</h3>
+
+        <p>
+            <a href="https://github.com/steven-xia/connect4">
+                <code class="language-plaintext highlighter-rouge">connect4</code>
+            </a>
+            <a href="https://github.com/steven-xia/connect4/commits/master">
+                <sub>
+                    <img src="assets/loading-badge.svg" alt="`last_commit`"
+                         data-echo="https://img.shields.io/github/last-commit/steven-xia/connect4?logo=github"/>
+                </sub>
+            </a>
+            ⯈ A Connect 4 bot written in impure Python.
+        </p>
+
+        <p>
+            <a href="https://github.com/steven-xia/reversi-bot">
+                <code class="language-plaintext highlighter-rouge">reversi-bot</code>
+            </a>
+            <a href="https://github.com/steven-xia/reversi-bot/commits/master">
+                <sub>
+                    <img src="assets/loading-badge.svg" alt="`last_commit`"
+                         data-echo="https://img.shields.io/github/last-commit/steven-xia/reversi-bot?logo=github"/>
+                </sub>
+            </a>
+            ⯈ Testing neural networks to play the game of Reversi/Othello.
+        </p>
+    </div>
+
+    <div class="fade-up-5">
+        <footer class="site-footer">
+        <span class="site-footer-credits">
+            This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+        </span>
+        </footer>
+    </div>
+</main>
+</body>
+
+<script src="assets/js/echo-1.7.3.min.js"></script>
+<script src="assets/js/echo.js"></script>
+</html>
