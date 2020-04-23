@@ -1,5 +1,9 @@
 echo.init({
-    callback: function (element, op) {
-        console.log(element, 'has been', op + 'ed')
-    }
+    offset: 100,
+    throttle: 250,
+    debounce: false
 });
+
+window.onresize = function() {
+    echo.render();
+}
