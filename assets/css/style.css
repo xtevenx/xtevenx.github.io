@@ -1017,8 +1017,8 @@ a:hover {
 }
 
 body {
-  color: #abb2bf;
-  background: #1e2127;
+  color: #ffffffa0;
+  background: #000000;
 }
 
 img {
@@ -1031,8 +1031,8 @@ img:hover {
 }
 
 .page-header {
-  background-color: #483654;
-  background-image: linear-gradient(180deg, #724c82, #1e2127);
+  background-color: #007aa7;
+  background-image: linear-gradient(180deg, #004e78, #000000);
 }
 
 .main-content h1,
@@ -1041,44 +1041,40 @@ img:hover {
 .main-content h4,
 .main-content h5,
 .main-content h6 {
-  color: #c678dd;
-}
-
-.main-content hr {
-  background-color: #5c6370;
+  color: #53a9d9;
 }
 
 .main-content code {
-  color: #c77556;
+  color: #df5e2f;
   background-color: #282c34;
 }
 
 .language-bash {
-  background: #1e2127;
+  background: #2c2c2c;
 }
 
 .highlight {
-  background-color: #1e2127;
+  background-color: #2c2c2c;
 }
 
 .main-content pre > code {
-  color: #c77556;
+  color: #df5e2f;
   background-color: #282c34;
 }
 
 .main-content pre {
-  background-color: #282c34;
-  border: solid 1px #282c34;
+  background-color: #000000;
+  border: solid 1px #000000;
 }
 
 .main-content table th,
 .main-content table td {
-  border: 1px solid #5c6370;
+  border: 1px solid #ffffffa0;
 }
 
 .site-footer {
   font-size: small;
-  border-top: solid 1px #5c6370;
+  border-top: solid 1px #ffffffa0;
   margin-bottom: 20px;
 }
 
