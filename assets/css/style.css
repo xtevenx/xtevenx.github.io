@@ -1036,6 +1036,10 @@ body {
   background: #000000;
 }
 
+a {
+  color: #007aa7;
+}
+
 .a-code {
   color: #df5e2f;
 }
@@ -1045,20 +1049,6 @@ body {
   background-color: #2c2c2c;
 }
 
-.main-content pre {
-  background-color: #000000;
-  border: solid 1px #000000;
-}
-
-.main-content pre > code {
-  color: #df5e2f;
-  background-color: #2c2c2c;
-}
-
-.language-bash {
-  background: #2c2c2c;
-}
-
 .main-content table th,
 .main-content table td {
   border: 1px solid #ffffff9f;
@@ -1066,7 +1056,7 @@ body {
 
 .site-footer {
   font-size: small;
-  border-top: solid 1px #ffffff9f;
+  border-top: solid 1px #2c2c2c;
   margin-bottom: 20px;
 }
 
@@ -1075,7 +1065,7 @@ body {
 }
 
 .site-footer-credits {
-  color: #5c6370;
+  color: #ffffff5f;
   float: right;
 }
 

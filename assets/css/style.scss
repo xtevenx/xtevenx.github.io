@@ -33,29 +33,19 @@ body {
   background: $background;
 }
 
-.a-code {
-  color: $complementary-light;
+a {
+  color: $primary;
 }
 
 // Code ----------------------------------------------------------------------
 
+.a-code {
+  color: $complementary-light;
+}
+
 .main-content code {
   color: $complementary-light;
   background-color: $background-light;
-}
-
-.main-content pre {
-  background-color: $background;
-  border: solid 1px $background;
-}
-
-.main-content pre > code {
-  color: $complementary-light;
-  background-color: $background-light;
-}
-
-.language-bash {
-  background: $background-light;
 }
 
 // Table ---------------------------------------------------------------------
@@ -69,7 +59,7 @@ body {
 
 .site-footer {
   font-size: small;
-  border-top: solid 1px $foreground;
+  border-top: solid 1px $background-light;
   margin-bottom: 20px;
 }
 
@@ -78,7 +68,7 @@ body {
 }
 
 .site-footer-credits {
-  color: #5c6370;
+  color: #ffffff5f;
   float: right;
 }
 
