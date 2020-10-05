@@ -5,26 +5,14 @@ $primary-light: #53a9d9;
 $primary-dark: #004e78;
 $complementary: #a72d00;
 $complementary-light: #df5e2f;
-$foreground: #ffffffa0;
+$foreground: #ffffff9f;
 $background: #000000;
 $background-light: #2c2c2c;
 
-
-body {
-  color: $foreground;
-  background: $background;
-}
-
-img {
-  opacity: 0.85;
-  transition: 0.2s;
-}
-
-img:hover {
-  opacity: 1;
-}
+// Header --------------------------------------------------------------------
 
 .page-header {
+  color: #ffffffdf;
   background-color: $primary;
   background-image: linear-gradient(180deg, $primary-dark, $background);
 }
@@ -38,22 +26,31 @@ img:hover {
   color: $primary-light;
 }
 
+// Body ----------------------------------------------------------------------
+
+body {
+  color: $foreground;
+  background: $background;
+}
+
+.a-code {
+  color: $complementary-light;
+}
+
+img {
+  opacity: 0.85;
+  transition: 0.2s;
+}
+
+img:hover {
+  opacity: 1;
+}
+
+// Code ----------------------------------------------------------------------
+
 .main-content code {
   color: $complementary-light;
-  background-color: #282c34;
-}
-
-.language-bash {
-  background: $background-light;
-}
-
-.highlight {
   background-color: $background-light;
-}
-
-.main-content pre > code {
-  color: $complementary-light;
-  background-color: #282c34;
 }
 
 .main-content pre {
@@ -61,10 +58,23 @@ img:hover {
   border: solid 1px $background;
 }
 
+.main-content pre > code {
+  color: $complementary-light;
+  background-color: $background-light;
+}
+
+.language-bash {
+  background: $background-light;
+}
+
+// Table ---------------------------------------------------------------------
+
 .main-content table th,
 .main-content table td {
   border: 1px solid $foreground;
 }
+
+// Footer --------------------------------------------------------------------
 
 .site-footer {
   font-size: small;
@@ -80,6 +90,8 @@ img:hover {
   color: #5c6370;
   float: right;
 }
+
+// Animations ----------------------------------------------------------------
 
 @keyframes fadeUp {
   from {
