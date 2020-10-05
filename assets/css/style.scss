@@ -9,6 +9,12 @@ $foreground: #ffffff9f;
 $background: #000000;
 $background-light: #2c2c2c;
 
+// Everything ----------------------------------------------------------------
+
+html {
+  scroll-behavior: smooth;
+}
+
 // Header --------------------------------------------------------------------
 
 .page-header {
@@ -53,6 +59,12 @@ a {
 .main-content table th,
 .main-content table td {
   border: 1px solid $foreground;
+}
+
+// Citation ------------------------------------------------------------------
+
+.citation {
+  font-size: 0.618em;
 }
 
 // Footer --------------------------------------------------------------------
