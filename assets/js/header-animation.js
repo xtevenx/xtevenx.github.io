@@ -1,11 +1,10 @@
 const _BubbleBorderFactor = 0.0;
 const _BubbleSizeMax = 40;
 const _BubbleSizeMin = 20;
-const _BubbleVelocityMin = 1;
-const _BubbleVelocityMax = 10;
+const _BubbleVelocityMin = 0.1;
+const _BubbleVelocityMax = 0.3;
 
-const _FramesPerSecond = 30;
-const _PixelsPerBubble = 200;
+const _PixelsPerBubble = 100;
 
 const _BubbleArray = [];
 
@@ -23,9 +22,11 @@ class Bubble {
         this.radius = (_BubbleSizeMax - _BubbleSizeMin) * Math.random() + _BubbleSizeMin;
         this.diameter = 2 * (1 + _BubbleBorderFactor) * this.radius;
         this.positionX = (headerWidth - this.diameter) * Math.random();
-        this.positionY = headerHeight - this.diameter;
+        this.positionY = headerHeight;
 
+        this.originalHeaderHeight = headerHeight;
         this.velocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
+        this.animationStart = undefined;
 
         this._initHTML();
     }
@@ -54,15 +55,20 @@ class Bubble {
         return outHorizontal || outVertical;
     }
 
-    updateRender() {
-        this.positionY -= this.velocity;
-        this.htmlObject.style.top = this.positionY + "px";
+    updateRender(timestamp) {
+        if (this.animationStart === undefined)
+            this.animationStart = timestamp;
+        const elapsedTime = timestamp - this.animationStart;
+
+        const translateDistance = elapsedTime * this.velocity;
+        this.htmlObject.style.transform = "translateY(-" + translateDistance + "px)";
+        this.positionY = this.originalHeaderHeight - translateDistance;
     }
 }
 
 // Header animation ----------------------------------------------------------
 
-function _headerAnimation() {
+function _headerAnimation(timestamp) {
     for (let i = _BubbleArray.length - 1; i >= 0; i--) {
         let bubble = _BubbleArray[i];
 
@@ -70,7 +76,7 @@ function _headerAnimation() {
             _BubbleArray.splice(i, 1);
             bubble.destructor();
         } else {
-            bubble.updateRender();
+            bubble.updateRender(timestamp);
         }
     }
 
@@ -78,7 +84,7 @@ function _headerAnimation() {
         _BubbleArray.push(new Bubble());
     }
 
-    setTimeout(_headerAnimation, 1000 / _FramesPerSecond);
+    window.requestAnimationFrame(_headerAnimation);
 }
 
 // Header resize -------------------------------------------------------------
@@ -100,4 +106,4 @@ function headerResize() {
 // On-load functions ---------------------------------------------------------
 
 headerResize();
-setTimeout(_headerAnimation, 1400);
+window.requestAnimationFrame(_headerAnimation);
