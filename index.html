@@ -14,11 +14,13 @@
 <body>
 
 <div class="fade-down">
-    <header class="page-header" role="banner">
-        <div class="fade-up-1"><h1 class="project-name">Steven Xia</h1></div>
-        <div class="fade-up-2"><h2 class="project-tagline">Failing at programming with exquisite style.</h2></div>
+    <header id="page-header" class="page-header" role="banner">
+        <div id="page-header-text">
+            <div class="fade-up-1"><h1 class="project-name">Steven Xia</h1></div>
+            <div class="fade-up-2"><h2 class="project-tagline">Failing at programming with exquisite style.</h2></div>
 
-        <div class="fade-up-3"><a href="https://github.com/xtevenx" class="btn">View Profile</a></div>
+            <div class="fade-up-3"><a href="https://github.com/xtevenx" class="btn">View Profile</a></div>
+        </div>
     </header>
 </div>
 
@@ -171,9 +173,11 @@
 
 <script src="assets/js/echo-1.7.3.min.js"></script>
 <script src="assets/js/echo-driver.js"></script>
+<script src="assets/js/header-animation.js"></script>
 <script>
     window.onresize = function () {
         echo.render();
+        header_resize();
     };
 </script>
 </html>

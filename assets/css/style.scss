@@ -32,6 +32,17 @@ html {
   color: $primary-light;
 }
 
+// Header animation ----------------------------------------------------------
+
+.bubble {
+  display: block;
+  position: absolute;
+  border: 10px solid red;
+  border-radius: 10px;
+  top: 200px;
+  left: 200px;
+}
+
 // Body ----------------------------------------------------------------------
 
 body {

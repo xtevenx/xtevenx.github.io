@@ -1035,6 +1035,15 @@ html {
   color: #53a9d9;
 }
 
+.bubble {
+  display: block;
+  position: absolute;
+  border: 10px solid red;
+  border-radius: 10px;
+  top: 200px;
+  left: 200px;
+}
+
 body {
   color: #ffffff9f;
   background: #000000;
