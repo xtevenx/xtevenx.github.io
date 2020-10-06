@@ -70,6 +70,11 @@ class Bubble {
 // Header animation ----------------------------------------------------------
 
 function _headerAnimation(timestamp) {
+    if (window.scrollY > headerHeight) {
+        window.requestAnimationFrame(_headerAnimation);
+        return;
+    }
+
     for (let i = _BubbleArray.length - 1; i >= 0; i--) {
         let bubble = _BubbleArray[i];
 
