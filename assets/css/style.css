@@ -1036,12 +1036,10 @@ html {
 }
 
 .bubble {
-  display: block;
   position: absolute;
-  border: 10px solid red;
-  border-radius: 10px;
-  top: 200px;
-  left: 200px;
+  border-style: solid;
+  border-color: #0000005f;
+  background-image: radial-gradient(#00000000, #00000000, #0000005f);
 }
 
 body {

@@ -8,6 +8,7 @@ $complementary-light: #df5e2f;
 $foreground: #ffffff9f;
 $background: #000000;
 $background-light: #2c2c2c;
+$bubble-color: #0000005f;
 
 // Everything ----------------------------------------------------------------
 
@@ -35,12 +36,10 @@ html {
 // Header animation ----------------------------------------------------------
 
 .bubble {
-  display: block;
   position: absolute;
-  border: 10px solid red;
-  border-radius: 10px;
-  top: 200px;
-  left: 200px;
+  border-style: solid;
+  border-color: $bubble-color;
+  background-image: radial-gradient(#00000000, #00000000, $bubble-color);
 }
 
 // Body ----------------------------------------------------------------------
