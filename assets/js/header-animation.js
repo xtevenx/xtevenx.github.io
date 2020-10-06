@@ -1,11 +1,11 @@
 const _BubbleBorderFactor = 0.0;
 const _BubbleSizeMax = 40;
-const _BubbleSizeMin = 20;
+const _BubbleSizeMin = 25;
 const _BubbleVelocityMin = 0.1;
 const _BubbleVelocityMax = 0.3;
 
-const _PixelsPerBubble = 100;
-const _BubbleCreationCooldown = 700;
+const _PixelsPerBubble = 40;
+const _BubbleCreationCooldown = 10 * _PixelsPerBubble;
 
 const _BubbleArray = [];
 
