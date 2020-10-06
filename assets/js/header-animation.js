@@ -5,6 +5,7 @@ const _BubbleVelocityMin = 0.1;
 const _BubbleVelocityMax = 0.3;
 
 const _PixelsPerBubble = 100;
+const _BubbleCreationCooldown = 700;
 
 const _BubbleArray = [];
 
@@ -13,7 +14,7 @@ const _BubbleArray = [];
 const header = document.getElementById("page-header");
 const headerText = document.getElementById("page-header-text");
 
-let headerHeight, headerWidth;
+let headerHeight, headerWidth, nextBubbleCreation;
 
 // Bubble class --------------------------------------------------------------
 
@@ -80,8 +81,12 @@ function _headerAnimation(timestamp) {
         }
     }
 
-    while (_BubbleArray.length < headerWidth / _PixelsPerBubble) {
+    if (nextBubbleCreation === undefined)
+        nextBubbleCreation = timestamp;
+
+    if (_BubbleArray.length < headerWidth / _PixelsPerBubble && timestamp >= nextBubbleCreation) {
         _BubbleArray.push(new Bubble());
+        nextBubbleCreation = timestamp + _BubbleCreationCooldown * (1000 / headerWidth);
     }
 
     window.requestAnimationFrame(_headerAnimation);
