@@ -4,8 +4,7 @@ const _BubbleSizeMin = 25;
 const _BubbleVelocityMin = 0.1;
 const _BubbleVelocityMax = 0.3;
 
-const _PixelsPerBubble = 40;
-const _BubbleCreationCooldown = 200;
+const _PixelsPerBubble = 40000;
 
 const _BubbleArray = [];
 
@@ -14,7 +13,7 @@ const _BubbleArray = [];
 const header = document.getElementById("page-header");
 const headerText = document.getElementById("page-header-text");
 
-let headerHeight, headerWidth, nextBubbleCreation;
+let headerHeight, headerWidth, lastBubbleCreation;
 
 // Bubble class --------------------------------------------------------------
 
@@ -23,9 +22,8 @@ class Bubble {
         this.radius = (_BubbleSizeMax - _BubbleSizeMin) * Math.random() + _BubbleSizeMin;
         this.diameter = 2 * (1 + _BubbleBorderFactor) * this.radius;
         this.positionX = (headerWidth - this.diameter) * Math.random();
-        this.positionY = headerHeight;
+        this.translateDistance = 0;
 
-        this.originalHeaderHeight = headerHeight;
         this.velocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
         this.animationStart = undefined;
 
@@ -41,7 +39,7 @@ class Bubble {
             parseInt(this.htmlObject.style.padding, 10)
             + parseInt(this.htmlObject.style.borderWidth, 10)
         ) + "px";
-        this.htmlObject.style.top = this.positionY + "px";
+        this.htmlObject.style.top = headerHeight + "px";
         this.htmlObject.style.left = this.positionX + "px";
         header.prepend(this.htmlObject);
     }
@@ -52,7 +50,13 @@ class Bubble {
 
     outOfFrame() {
         const outHorizontal = this.positionX >= headerWidth - this.diameter;
-        const outVertical = this.positionY <= -this.diameter;
+
+        const positionY = parseInt(this.htmlObject.style.top, 10) - this.translateDistance;
+        const outVertical = (
+            positionY <= window.scrollY - this.diameter
+            || positionY > headerHeight
+        );
+
         return outHorizontal || outVertical;
     }
 
@@ -61,16 +65,15 @@ class Bubble {
             this.animationStart = timestamp;
         const elapsedTime = timestamp - this.animationStart;
 
-        const translateDistance = elapsedTime * this.velocity;
-        this.htmlObject.style.transform = "translateY(-" + translateDistance + "px)";
-        this.positionY = this.originalHeaderHeight - translateDistance;
+        this.translateDistance = elapsedTime * this.velocity;
+        this.htmlObject.style.transform = "translateY(-" + this.translateDistance + "px)";
     }
 }
 
 // Header animation ----------------------------------------------------------
 
 function _headerAnimation(timestamp) {
-    if (window.scrollY > headerHeight) {
+    if (window.scrollY >= headerHeight) {
         window.requestAnimationFrame(_headerAnimation);
         return;
     }
@@ -86,12 +89,16 @@ function _headerAnimation(timestamp) {
         }
     }
 
-    if (nextBubbleCreation === undefined)
-        nextBubbleCreation = timestamp;
+    if (lastBubbleCreation === undefined)
+        lastBubbleCreation = 0;
 
-    if (_BubbleArray.length < headerWidth / _PixelsPerBubble && timestamp >= nextBubbleCreation) {
+    const maximumBubbles = ((headerHeight - window.scrollY) * headerWidth) / _PixelsPerBubble;
+    const bubbleLifetime = (headerHeight - window.scrollY) / ((_BubbleVelocityMax + _BubbleVelocityMin) / 2);
+    const bubbleCreationCooldown = bubbleLifetime / maximumBubbles;
+
+    if (_BubbleArray.length < maximumBubbles && timestamp >= lastBubbleCreation + bubbleCreationCooldown) {
         _BubbleArray.push(new Bubble());
-        nextBubbleCreation = timestamp + _BubbleCreationCooldown * (1000 / headerWidth);
+        lastBubbleCreation = timestamp;
     }
 
     window.requestAnimationFrame(_headerAnimation);
