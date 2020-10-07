@@ -5,6 +5,7 @@ $primary-light: #53a9d9;
 $primary-dark: #004e78;
 $complementary: #a72d00;
 $complementary-light: #df5e2f;
+$complementary-lighter: #ff8e5b;
 $foreground: #ffffff9f;
 $background: #000000;
 $background-light: #2c2c2c;
@@ -20,7 +21,7 @@ html {
 
 .page-header {
   color: #ffffffdf;
-  background-color: $primary;
+  background-color: $primary-dark;
   background-image: linear-gradient(180deg, $primary-dark, $background);
 }
 
@@ -50,17 +51,13 @@ body {
 }
 
 a {
-  color: $primary;
+  color: $primary-light;
 }
 
 // Code ----------------------------------------------------------------------
 
-.a-code {
-  color: $complementary-light;
-}
-
 .main-content code {
-  color: $complementary-light;
+  color: $complementary-lighter;
   background-color: $background-light;
 }
 
@@ -90,7 +87,7 @@ a {
 }
 
 .site-footer-credits {
-  color: #ffffff5f;
+  color: #ffffff7f;
   float: right;
 }
 
