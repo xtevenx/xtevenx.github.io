@@ -97,38 +97,6 @@ a {
 
 // Animations ----------------------------------------------------------------
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translatey(222px);
-  }
-  to {
-    opacity: 1;
-    transform: translatey(0);
-  }
-}
-
-.fade-up-1 {
-  animation-name: fadeUp;
-  animation-fill-mode: both;
-  animation-duration: 632ms;
-  animation-delay: 211ms;
-}
-
-.fade-up-2 {
-  animation-name: fadeUp;
-  animation-fill-mode: both;
-  animation-duration: 632ms;
-  animation-delay: 421ms;
-}
-
-.fade-up-3 {
-  animation-name: fadeUp;
-  animation-fill-mode: both;
-  animation-duration: 632ms;
-  animation-delay: 632ms;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -138,16 +106,35 @@ a {
   }
 }
 
-
 .fade-in-header {
   animation-name: fadeIn;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-duration: 1110ms;
+}
+
+.fade-in-1 {
+  animation-name: fadeIn;
+  animation-fill-mode: backwards;
+  animation-duration: 632ms;
+  animation-delay: 211ms;
+}
+
+.fade-in-2 {
+  animation-name: fadeIn;
+  animation-fill-mode: backwards;
+  animation-duration: 632ms;
+  animation-delay: 421ms;
+}
+
+.fade-in-3 {
+  animation-name: fadeIn;
+  animation-fill-mode: backwards;
+  animation-duration: 632ms;
+  animation-delay: 632ms;
 }
 
 .fade-in-main {
   animation-name: fadeIn;
   animation-fill-mode: backwards;
   animation-duration: 632ms;
-  animation-delay: 632ms;
 }
