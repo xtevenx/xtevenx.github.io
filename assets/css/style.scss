@@ -56,6 +56,10 @@ a {
 
 // Code ----------------------------------------------------------------------
 
+.a-code {
+  color: $complementary-lighter;
+}
+
 .main-content code {
   color: $complementary-lighter;
   background-color: $background-light;
