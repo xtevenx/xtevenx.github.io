@@ -40,7 +40,7 @@
                 parseInt(this.htmlObject.style.padding, 10)
                 + parseInt(this.htmlObject.style.borderWidth, 10)
             ) + "px";
-            this.htmlObject.style.top = headerHeight + "px";
+            this.htmlObject.style.top = (headerHeight - this.diameter) + "px";
             this.htmlObject.style.left = this.positionX + "px";
             header.prepend(this.htmlObject);
         }
@@ -55,7 +55,7 @@
             const positionY = parseInt(this.htmlObject.style.top, 10) - this.translateDistance;
             const outVertical = (
                 positionY <= window.scrollY - this.diameter
-                || positionY > headerHeight
+                || positionY > (headerHeight - this.diameter)
             );
 
             return outHorizontal || outVertical;
