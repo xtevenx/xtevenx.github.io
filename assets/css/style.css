@@ -1024,6 +1024,7 @@ html {
   color: #ffffffdf;
   background-color: #004e78;
   background-image: linear-gradient(180deg, #004e78, #000000);
+  height: 100vh;
 }
 
 .main-content h1,
