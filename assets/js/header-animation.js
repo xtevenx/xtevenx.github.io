@@ -28,11 +28,11 @@
             this.velocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
             this.animationStart = undefined;
 
+            this.htmlObject = document.createElement("span");
             this._initHTML();
         }
 
         _initHTML() {
-            this.htmlObject = document.createElement("span");
             this.htmlObject.classList.add("bubble");
             this.htmlObject.style.borderWidth = (_BubbleBorderFactor * this.radius) + "px";
             this.htmlObject.style.padding = this.radius + "px";
