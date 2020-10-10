@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 HTMLFullOpts="\
     --collapse-boolean-attributes \
@@ -22,6 +22,7 @@ HTMLFullOpts="\
     --sort-attributes \
     --sort-class-name \
     --use-short-doctype"
+
 HTMLCurrOpts="\
     --collapse-inline-tag-whitespace \
     --collapse-whitespace \
@@ -36,19 +37,43 @@ HTMLCurrOpts="\
     --use-short-doctype"
 
 # npm install html-minifier
-html-minifier $HTMLCurrOpts index.dev.html > index.html
-echo "index.dev.html:" `wc index.dev.html | awk '{print $3}'` "->" `wc index.html | awk '{print $3}'`
+html-minifier $HTMLCurrOpts index.dev.html >index.html
+before=$(wc index.dev.html | awk '{print $3}')
+after=$(wc index.html | awk '{print $3}')
+change=$((100 * $after / $before - 100))
+echo "index.dev.html: $before -> $after ($change%)"
 
 # npm install csso-cli
 csso assets/css/style.css --output assets/css/style.min.css
-echo "assets/css/style.css:" `wc assets/css/style.css | awk '{print $3}'` "->" `wc assets/css/style.min.css | awk '{print $3}'`
+before=$(wc assets/css/style.css | awk '{print $3}')
+after=$(wc assets/css/style.min.css | awk '{print $3}')
+change=$((100 * $after / $before - 100))
+echo "assets/css/style.css: $before -> $after ($change%)"
 
 # npm install npx && npm install google-closure-compiler
-npx google-closure-compiler --js=assets/js/echo-1.7.3.js --js_output_file=assets/js/echo-1.7.3.min.js --compilation_level SIMPLE
-echo "assets/js/echo-1.7.3.js:" `wc assets/js/echo-1.7.3.js | awk '{print $3}'` "->" `wc assets/js/echo-1.7.3.min.js | awk '{print $3}'`
+npx google-closure-compiler \
+  --js=assets/js/echo-1.7.3.js \
+  --js_output_file=assets/js/echo-1.7.3.min.js \
+  --compilation_level SIMPLE
+before=$(wc assets/js/echo-1.7.3.js | awk '{print $3}')
+after=$(wc assets/js/echo-1.7.3.min.js | awk '{print $3}')
+change=$((100 * $after / $before - 100))
+echo "assets/js/echo-1.7.3.js: $before -> $after ($change%)"
 
-npx google-closure-compiler --js=assets/js/echo-driver.js --js_output_file=assets/js/echo-driver.min.js --compilation_level SIMPLE
-echo "assets/js/echo-driver.js:" `wc assets/js/echo-driver.js | awk '{print $3}'` "->" `wc assets/js/echo-driver.min.js | awk '{print $3}'`
+npx google-closure-compiler \
+  --js=assets/js/echo-driver.js \
+  --js_output_file=assets/js/echo-driver.min.js \
+  --compilation_level SIMPLE
+before=$(wc assets/js/echo-driver.js | awk '{print $3}')
+after=$(wc assets/js/echo-driver.min.js | awk '{print $3}')
+change=$((100 * $after / $before - 100))
+echo "assets/js/echo-driver.js: $before -> $after ($change%)"
 
-npx google-closure-compiler --js=assets/js/header-animation.js --js_output_file=assets/js/header-animation.min.js --compilation_level SIMPLE
-echo "assets/js/header-animation.js:" `wc assets/js/header-animation.js | awk '{print $3}'` "->" `wc assets/js/header-animation.min.js | awk '{print $3}'`
+npx google-closure-compiler \
+  --js=assets/js/header-animation.js \
+  --js_output_file=assets/js/header-animation.min.js \
+  --compilation_level SIMPLE
+before=$(wc assets/js/header-animation.js | awk '{print $3}')
+after=$(wc assets/js/header-animation.min.js | awk '{print $3}')
+change=$((100 * $after / $before - 100))
+echo "assets/js/header-animation.js: $before -> $after ($change%)"
