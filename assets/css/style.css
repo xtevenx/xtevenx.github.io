@@ -1027,13 +1027,8 @@ html {
   height: 100vh;
 }
 
-.main-content h1,
-.main-content h2,
-.main-content h3,
-.main-content h4,
-.main-content h5,
-.main-content h6 {
-  color: #53a9d9;
+.btn {
+  position: relative;
 }
 
 .bubble {
@@ -1041,6 +1036,15 @@ html {
   border-style: solid;
   border-color: #0000005f;
   background-image: radial-gradient(#00000000, #00000000, #0000005f);
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #53a9d9;
 }
 
 body {

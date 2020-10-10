@@ -26,16 +26,11 @@ html {
   height: 100vh;
 }
 
-.main-content h1,
-.main-content h2,
-.main-content h3,
-.main-content h4,
-.main-content h5,
-.main-content h6 {
-  color: $primary-light;
-}
-
 // Header animation ----------------------------------------------------------
+
+.btn {
+  position: relative;
+}
 
 .bubble {
   position: absolute;
@@ -45,6 +40,15 @@ html {
 }
 
 // Body ----------------------------------------------------------------------
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: $primary-light;
+}
 
 body {
   color: $foreground;
