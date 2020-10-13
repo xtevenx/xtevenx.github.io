@@ -5,7 +5,7 @@
     const _BubbleVelocityMin = 0.1;
     const _BubbleVelocityMax = 0.3;
 
-    const _PixelsPerBubble = 40000;
+    const _PixelsPerBubble = 80000;
 
     const _BubbleArray = [];
 
