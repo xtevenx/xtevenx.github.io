@@ -1054,6 +1054,7 @@ body {
 
 a {
   color: #53a9d9;
+  outline: none;
 }
 
 .a-code {
