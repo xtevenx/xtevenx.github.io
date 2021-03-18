@@ -40,6 +40,7 @@
                 parseInt(this.htmlObject.style.padding, 10)
                 + parseInt(this.htmlObject.style.borderWidth, 10)
             ) + "px";
+            this.htmlObject.style.opacity = (this.radius / _BubbleSizeMax) + "";
             this.htmlObject.style.top = (headerHeight - this.diameter) + "px";
             this.htmlObject.style.left = this.positionX + "px";
             header.prepend(this.htmlObject);
