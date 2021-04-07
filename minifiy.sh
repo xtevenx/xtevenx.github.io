@@ -49,6 +49,13 @@ after=$(wc background.html | awk '{print $3}')
 change=$((100 * after / before - 100))
 echo "background.dev.html: $before -> $after ($change%)"
 
+html-minifier $HTMLCurrOpts gradient.dev.html >gradient.html
+before=$(wc gradient.dev.html | awk '{print $3}')
+after=$(wc gradient.html | awk '{print $3}')
+change=$((100 * after / before - 100))
+echo "gradient.dev.html: $before -> $after ($change%)"
+
+
 # npm install csso-cli --global
 csso assets/css/style.css --output assets/css/style.min.css
 before=$(wc assets/css/style.css | awk '{print $3}')
