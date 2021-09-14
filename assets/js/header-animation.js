@@ -1,4 +1,6 @@
 (function (bubbleAnimation) {
+    const _AnimationFPS = 24;
+
     const _BubbleBorderFactor = 0.0;
     const _BubbleSizeMax = 40;
     const _BubbleSizeMin = 25;
@@ -103,7 +105,9 @@
             lastBubbleCreation = timestamp;
         }
 
-        window.requestAnimationFrame(_headerAnimation);
+        setTimeout(function() {
+            window.requestAnimationFrame(_headerAnimation)
+        }, 1000 / _AnimationFPS);
     }
 
 // Header resize -------------------------------------------------------------
