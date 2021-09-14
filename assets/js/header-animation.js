@@ -4,8 +4,8 @@
     const _BubbleBorderFactor = 0.0;
     const _BubbleSizeMax = 40;
     const _BubbleSizeMin = 25;
-    const _BubbleVelocityMin = 0.1;
-    const _BubbleVelocityMax = 0.3;
+    const _BubbleVelocityMin = 0.05;
+    const _BubbleVelocityMax = 0.1;
 
     const _PixelsPerBubble = 80000;
 
