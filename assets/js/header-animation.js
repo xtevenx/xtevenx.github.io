@@ -9,9 +9,9 @@
 
     const _PixelsPerBubble = 40000;
 
-    const _MomentumFactor = 0.99;
-    const _MouseForce = 200;
-    const _AccelerationPrevention = 0.1;
+    const _MomentumFactor = 0.996;
+    const _MouseForce = 800;
+    const _AccelerationPrevention = 0.4;
 
     const _BubbleArray = [];
 
