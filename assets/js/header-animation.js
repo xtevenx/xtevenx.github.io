@@ -25,10 +25,10 @@
             this.radius = (_BubbleSizeMax - _BubbleSizeMin) * Math.random() + _BubbleSizeMin;
             this.diameter = 2 * (1 + _BubbleBorderFactor) * this.radius;
             this.positionX = (headerWidth - this.diameter) * Math.random();
-            this.translateDistance = 0;
 
             this.velocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
-            this.animationStart = undefined;
+            this.displacement = 0;
+            this.lastTimestamp = undefined;
 
             this.htmlObject = document.createElement("span");
             this._initHTML();
@@ -65,12 +65,13 @@
         }
 
         updateRender(timestamp) {
-            if (this.animationStart === undefined)
-                this.animationStart = timestamp;
-            const elapsedTime = timestamp - this.animationStart;
+            if (this.lastTimestamp === undefined)
+                this.lastTimestamp = timestamp;
+            const elapsedTime = timestamp - this.lastTimestamp;
 
-            this.translateDistance = elapsedTime * this.velocity;
-            this.htmlObject.style.transform = "translateY(-" + this.translateDistance + "px)";
+            this.displacement += elapsedTime * this.velocity;
+            this.htmlObject.style.transform = "translateY(-" + this.displacement + "px)";
+            this.lastTimestamp = timestamp;
         }
     }
 
