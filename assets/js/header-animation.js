@@ -8,6 +8,7 @@
     const _BubbleVelocityMax = 0.1;
 
     const _PixelsPerBubble = 80000;
+    const _DragFactor = 0.99;
 
     const _BubbleArray = [];
 
@@ -26,8 +27,11 @@
             this.diameter = 2 * (1 + _BubbleBorderFactor) * this.radius;
             this.positionX = (headerWidth - this.diameter) * Math.random();
 
-            this.velocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
-            this.displacement = 0;
+            this.innateVelocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
+            this.verticalVelocity = 0;
+            this.horizontalVelocity = 0;
+            this.verticalDisplacement = 0;
+            this.horizontalDisplacement = 0;
             this.lastTimestamp = undefined;
 
             this.htmlObject = document.createElement("span");
@@ -53,13 +57,11 @@
         }
 
         outOfFrame() {
-            const outHorizontal = this.positionX >= headerWidth - this.diameter;
+            const positionX = parseInt(this.htmlObject.style.left, 10) + this.horizontalDisplacement;
+            const outHorizontal = positionX < -this.diameter || positionX > headerWidth;
 
-            const positionY = parseInt(this.htmlObject.style.top, 10) - this.translateDistance;
-            const outVertical = (
-                positionY <= window.scrollY - this.diameter
-                || positionY > (headerHeight - this.diameter)
-            );
+            const positionY = parseInt(this.htmlObject.style.top, 10) - this.verticalDisplacement;
+            const outVertical = positionY < window.scrollY - this.diameter || positionY > headerHeight;
 
             return outHorizontal || outVertical;
         }
@@ -69,8 +71,13 @@
                 this.lastTimestamp = timestamp;
             const elapsedTime = timestamp - this.lastTimestamp;
 
-            this.displacement += elapsedTime * this.velocity;
-            this.htmlObject.style.transform = "translateY(-" + this.displacement + "px)";
+            this.verticalVelocity *= Math.pow(_DragFactor, elapsedTime);
+            this.horizontalVelocity *= Math.pow(_DragFactor, elapsedTime);
+
+            this.verticalDisplacement += elapsedTime * (this.innateVelocity + this.verticalVelocity);
+            this.horizontalDisplacement += elapsedTime * this.horizontalVelocity;
+            this.htmlObject.style.transform =
+                "translate(" + this.horizontalDisplacement + "px, -" + this.verticalDisplacement + "px)";
             this.lastTimestamp = timestamp;
         }
     }
@@ -106,7 +113,7 @@
             lastBubbleCreation = timestamp;
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             window.requestAnimationFrame(_headerAnimation)
         }, 1000 / _AnimationFPS);
     }
