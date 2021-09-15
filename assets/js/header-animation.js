@@ -1,5 +1,5 @@
 (function (bubbleAnimation) {
-    const _AnimationFPS = 24;
+    const _AnimationFPS = 999;  // requestAnimationFrame caps at 60.
 
     const _BubbleBorderFactor = 0.0;
     const _BubbleSizeMax = 40;
