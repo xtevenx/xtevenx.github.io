@@ -7,8 +7,11 @@
     const _BubbleVelocityMin = 0.05;
     const _BubbleVelocityMax = 0.1;
 
-    const _PixelsPerBubble = 80000;
-    const _DragFactor = 0.99;
+    const _PixelsPerBubble = 40000;
+
+    const _MomentumFactor = 0.99;
+    const _MouseForce = 200;
+    const _AccelerationPrevention = 0.1;
 
     const _BubbleArray = [];
 
@@ -19,12 +22,15 @@
 
     let headerHeight, headerWidth, lastBubbleCreation;
 
+    let mouseX = 0, mouseY = 0;
+
 // Bubble class --------------------------------------------------------------
 
     class Bubble {
         constructor() {
             this.radius = (_BubbleSizeMax - _BubbleSizeMin) * Math.random() + _BubbleSizeMin;
             this.diameter = 2 * (1 + _BubbleBorderFactor) * this.radius;
+            this.positionY = headerHeight - this.diameter
             this.positionX = (headerWidth - this.diameter) * Math.random();
 
             this.innateVelocity = ((_BubbleVelocityMax - _BubbleVelocityMin) * Math.random() + _BubbleVelocityMin);
@@ -47,7 +53,7 @@
                 + parseInt(this.htmlObject.style.borderWidth, 10)
             ) + "px";
             this.htmlObject.style.opacity = (this.radius / _BubbleSizeMax) + "";
-            this.htmlObject.style.top = (headerHeight - this.diameter) + "px";
+            this.htmlObject.style.top = this.positionY + "px";
             this.htmlObject.style.left = this.positionX + "px";
             header.prepend(this.htmlObject);
         }
@@ -57,11 +63,11 @@
         }
 
         outOfFrame() {
-            const positionX = parseInt(this.htmlObject.style.left, 10) + this.horizontalDisplacement;
-            const outHorizontal = positionX < -this.diameter || positionX > headerWidth;
+            this.positionX = parseInt(this.htmlObject.style.left, 10) + this.horizontalDisplacement;
+            const outHorizontal = this.positionX < -this.diameter || this.positionX > headerWidth;
 
-            const positionY = parseInt(this.htmlObject.style.top, 10) - this.verticalDisplacement;
-            const outVertical = positionY < window.scrollY - this.diameter || positionY > headerHeight;
+            this.positionY = parseInt(this.htmlObject.style.top, 10) - this.verticalDisplacement;
+            const outVertical = this.positionY < window.scrollY - this.diameter || this.positionY > headerHeight;
 
             return outHorizontal || outVertical;
         }
@@ -71,8 +77,18 @@
                 this.lastTimestamp = timestamp;
             const elapsedTime = timestamp - this.lastTimestamp;
 
-            this.verticalVelocity *= Math.pow(_DragFactor, elapsedTime);
-            this.horizontalVelocity *= Math.pow(_DragFactor, elapsedTime);
+            const verticalDiff = (this.positionY + this.diameter / 2) - (mouseY + window.scrollY);
+            const horizontalDiff = (this.positionX + this.diameter / 2) - mouseX;
+            const mouseDistance = Math.sqrt(verticalDiff ** 2 + horizontalDiff ** 2);
+            const verticalPortion = verticalDiff / mouseDistance;
+            const horizontalPortion = horizontalDiff / mouseDistance;
+            this.verticalVelocity -=
+                _MouseForce * verticalPortion / (mouseDistance + this.diameter * _AccelerationPrevention) ** 2;
+            this.horizontalVelocity +=
+                _MouseForce * horizontalPortion / (mouseDistance + this.diameter * _AccelerationPrevention) ** 2;
+
+            this.verticalVelocity *= _MomentumFactor ** elapsedTime;
+            this.horizontalVelocity *= _MomentumFactor ** elapsedTime;
 
             this.verticalDisplacement += elapsedTime * (this.innateVelocity + this.verticalVelocity);
             this.horizontalDisplacement += elapsedTime * this.horizontalVelocity;
@@ -135,6 +151,11 @@
     }
 
 // On-load functions ---------------------------------------------------------
+
+    document.addEventListener("mousemove", (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+    });
 
     bubbleAnimation.onresize();
     window.requestAnimationFrame(_headerAnimation);
