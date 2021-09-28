@@ -9,8 +9,9 @@
 
     const _PixelsPerBubble = 40000;
 
-    const _MomentumFactor = 0.996;
-    const _MouseForce = 800;
+    const _MomentumFactor = 0.992;
+    const _MouseForce = 96 ** 16;
+    const _WeaknessFactor = 16;
     const _AccelerationPrevention = 0.4;
 
     const _BubbleArray = [];
@@ -82,10 +83,10 @@
             const mouseDistance = Math.sqrt(verticalDiff ** 2 + horizontalDiff ** 2);
             const verticalPortion = verticalDiff / mouseDistance;
             const horizontalPortion = horizontalDiff / mouseDistance;
-            this.verticalVelocity -=
-                _MouseForce * verticalPortion / (mouseDistance + this.diameter * _AccelerationPrevention) ** 2;
-            this.horizontalVelocity +=
-                _MouseForce * horizontalPortion / (mouseDistance + this.diameter * _AccelerationPrevention) ** 2;
+            this.verticalVelocity -= _MouseForce * verticalPortion /
+                (mouseDistance + this.diameter * _AccelerationPrevention) ** _WeaknessFactor;
+            this.horizontalVelocity += _MouseForce * horizontalPortion /
+                (mouseDistance + this.diameter * _AccelerationPrevention) ** _WeaknessFactor;
 
             this.verticalVelocity *= _MomentumFactor ** elapsedTime;
             this.horizontalVelocity *= _MomentumFactor ** elapsedTime;
