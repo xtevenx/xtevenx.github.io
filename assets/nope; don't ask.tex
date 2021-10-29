@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[margin=0.83in]{geometry}
+
+\usepackage{enumitem}
+\usepackage{fontawesome5}   % http://mirrors.ibiblio.org/CTAN/fonts/fontawesome5/doc/fontawesome5.pdf
+\usepackage{hyperref}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\newcommand{\entrytitlesimple}[2]{\vspace{0.5em}\textbf{#1}\hfill #2}
+\newcommand{\entrytitleskip}{\par\vspace{-0.7em}}
+\newcommand{\entrytitle}[3]{\vspace{0.5em}\textbf{#1}, #2\hfill #3}
+\renewcommand{\section}[1]{\vspace{0.5em}\Large{#1}\vspace{0.3em}\hrule\normalsize{}}
+
+\setlist[itemize]{nosep}
+\renewcommand{\labelitemi}{\faAngleRight}
+\newenvironment{entrybody}{\begin{itemize}[itemsep=0.3em]}{\end{itemize}}
+
+
+\begin{document}
+\pagestyle{empty}
+
+
+\begin{center}
+    \huge{Steven Xia} \\\vspace{0.5em}
+    \normalsize{\faEnvelope\: \href{mailto:scx@sfu.ca}{scx@sfu.ca}} \qquad
+    \normalsize{\faPhoneSquare*\: 236-513-3173} \qquad
+    \normalsize{\faGithub\: \href{https://github.com/xtevenx}{xtevenx}}
+\end{center}
+
+
+\section{Skills} \vspace{0.5em}
+
+Has worked on front-end, back-end, machine learning, performance critical code, and the Linux environment.
+Recreational competitive programmer; excellent at converting abstract concepts into concrete code.
+\vspace{-0.2em}
+
+\textbf{Programming Languages}: C, C++, Java, JavaScript, Python, R
+
+
+\section{Education}
+
+\entrytitle{Simon Fraser University}{Bachelor of Computing Science}{September 2020 – Present}
+\begin{entrybody}
+\item Received 100\% in ``Data Structures and Programming''
+\end{entrybody}
+
+
+\section{Experience}
+
+\entrytitle{Eric Hamber Math Club}{Head Coach}{September 2019 – June 2020}
+\begin{entrybody}
+\item Taught high school students extracurricular math subjects such as number theory and probability
+\item Mentored students in problem solving skills and approaching problems in creative ways
+\end{entrybody}
+
+\entrytitle{TCEC Chessdom}{Volunteer Software Developer}{February 2019 – May 2019}
+\begin{entrybody}
+\item Rewrote a JavaScript data parser to improve performance and reliability
+\item Worked closely with other developers to integrate the script into preexisting systems
+\end{entrybody}
+
+
+\section{Projects}
+
+\entrytitle{SMark \href{https://github.com/xtevenx/SMark}{\faGithub}} %
+    {Specialized statistics manipulation software for schools}{March 2020 – Present}
+\begin{entrybody}
+\item Designed and implemented calculus based functions to manipulate statistical populations
+\item Currently maintaining a concise but thoroughly documented codebase for over 19 months
+\end{entrybody}
+
+\entrytitle{ProRankings \href{https://xtevenx.github.io/ProRankings/}{\faGithub}} %
+    {E-sports team strength calculator}{September 2020 – Present}
+\begin{entrybody}
+\item
+    Wrote a full stand-alone library for the \href{http://www.glicko.net/glicko/glicko.pdf}{Glicko}
+    and \href{http://www.glicko.net/glicko/glicko2.pdf}{Glicko-2} rating systems
+\item
+    Worked on front-end, writing a responsive webpage built with HTML/CSS and a variety of
+    JavaScript libraries (namely, Chart.js and List.js)
+\item
+    Worked on back-end, developing an automatically updating script to provide accurate and
+    up-to-date power ranking data for the game League of Legends
+\end{entrybody}
+
+\entrytitle{OthelloBot \href{https://github.com/xtevenx/othello-bot}{\faGithub}} %
+    {Computer program that plays \href{https://en.wikipedia.org/wiki/Reversi}{Reversi}}{September 2018 – April 2019}
+\begin{entrybody}
+\item Experimented with various Convolutional Neural Network architectures using the Keras API
+\item Utilized the NegaScout algorithm for quickly expanding and pruning the game tree
+\item  % 30605 compared to 13137 positions/sec
+    Used a clever bitwise game board representation along with Cython to increase game manipulation
+    performance by 233\% compared to a traditional implementation in pure Python
+\item  % 29/36 on one line per 4 starting moves
+    Achieved 80.6\% best move prediction accuracy in the first 10 moves (based on the \href{http://www.orbanova.com/nbook}{NTest opening book})
+    with only 0.01\% of the positions searched
+\end{entrybody}
+
+
+\section{Awards}
+
+\entrytitlesimple{Undergraduate Open Scholarship}{September 2021} \entrytitleskip
+\entrytitle{President's Honor Roll}{4.02 GPA}{May 2021}
+
+
+\end{document}
