@@ -1,9 +1,12 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.56in]{geometry}
 
 \usepackage{enumitem}
 \usepackage{fontawesome5}   % http://mirrors.ibiblio.org/CTAN/fonts/fontawesome5/doc/fontawesome5.pdf
 \usepackage{hyperref}
+
+\usepackage[T1]{fontenc}
+\usepackage{tgheros}
 
 
 \setlength{\parindent}{0pt}
@@ -11,8 +14,8 @@
 
 \newcommand{\entrytitlesimple}[2]{\vspace{0.5em}\textbf{#1}\hfill #2}
 \newcommand{\entrytitleskip}{\par\vspace{-0.7em}}
-\newcommand{\entrytitle}[3]{\vspace{0.5em}\textbf{#1}, #2\hfill #3}
-\renewcommand{\section}[1]{\vspace{0.5em}\Large{#1}\vspace{0.3em}\hrule\normalsize{}}
+\newcommand{\entrytitle}[3]{\vspace{0.5em}\textbf{#1}, {\small #2}\hfill #3}
+\renewcommand{\section}[1]{\vspace{1em}{\Large #1}\vspace{0.3em}\hrule}
 
 \setlist[itemize]{nosep}
 \renewcommand{\labelitemi}{\faAngleRight}
@@ -20,24 +23,26 @@
 
 
 \begin{document}
+\fontfamily{qhv}\selectfont
 \pagestyle{empty}
 
 
 \begin{center}
-    \huge{Steven Xia} \\\vspace{0.5em}
-    \normalsize{\faEnvelope\: \href{mailto:scx@sfu.ca}{scx@sfu.ca}} \qquad
-    \normalsize{\faPhoneSquare*\: 236-513-3173} \qquad
-    \normalsize{\faGithub\: \href{https://github.com/xtevenx}{xtevenx}}
-\end{center} %\vspace{-0.5em}
+    {\huge Steven Xia} \\\vspace{1em}
+    \faEnvelope\: \href{mailto:scx@sfu.ca}{scx@sfu.ca} \qquad
+    \faPhoneSquare*\: 236-513-3173 \qquad
+    \faGithub\: \href{https://github.com/xtevenx}{xtevenx}
+\end{center}\vspace{-1em}
 
 
 \section{Skills} \vspace{0.5em}
 
-Has worked on front-end, back-end, machine learning, performance critical code, and the Linux environment.
-Recreational competitive programmer; excellent at converting abstract concepts into concrete code.
-\vspace{-0.2em}
-
-\textbf{Programming Languages}: C, C++, Java, JavaScript, Python, R
+\begin{entrybody}
+\item Over 8 years of programming experience in C/C++, Java, JavaScript, Python, R, and others
+\item
+    Has worked on a huge range of software development tasks including web design, Linux server
+    management, web scraping, SQL database integration, and neural network based machine learning
+\end{entrybody}
 
 
 \section{Experience}
@@ -50,8 +55,12 @@ Recreational competitive programmer; excellent at converting abstract concepts i
 
 \entrytitle{TCEC Chessdom}{Software Developer}{February 2019 – May 2019}
 \begin{entrybody}
-\item Rewrote multiple high-performance JavaScript data parsers to decrease their runtime by 69\%
-\item Worked closely with other developers to integrate the scripts into preexisting systems
+\item
+    Rewrote multiple JavaScript data parsers using various caching and dynamic programming
+    techniques to decrease their runtime by 69\%
+\item
+    Worked closely with other developers to integrate these scripts into preexisting systems by
+    ensuring both robustness and compliance with the existing specifications
 \end{entrybody}
 
 
@@ -60,36 +69,43 @@ Recreational competitive programmer; excellent at converting abstract concepts i
 \entrytitle{ProRankings \href{https://github.com/xtevenx/ProRankings}{\faGithub}} %
     {E-sports team strength calculator}{September 2020 – Present}
 \begin{entrybody}
-\item Wrote a robust stand-alone library for the Glicko and Glicko-2 rating systems
-\item Built a responsive webpage with HTML/CSS and a variety of JavaScript libraries
+\item Built a clean and responsive webpage with HTML/CSS and a variety of JavaScript libraries
 \item
-    Developed an automatically updating script deployed on a Linux server to provide up-to-date
-    power ranking data for the game League of Legends
+    Developed an automatically updating script deployed on a private Linux server to provide
+    up-to-date power ranking data of the e-sports scene for League of Legends
 \end{entrybody}
 
 \entrytitle{Easter Bunny Hunt} %
     {Retro-inspired arcade game as a class project}{September 2021 – December 2021}
 \begin{entrybody}
-\item Participated in the full software development life-cycle: from design to development to testing
-\item Used the Maven build automation and testing framework to increase productivity and quality
+\item
+    Participated in the full software development life-cycle from design to development to
+    testing to deployment
+\item
+    Used the Maven build automation and testing framework to increase team productivity and
+    ensure product quality through thorough unit tests and system tests
 \end{entrybody}
 
 \entrytitle{SMark \href{https://github.com/xtevenx/SMark}{\faGithub}} %
     {Specialized statistics manipulation software for schools}{March 2020 – August 2021}
 \begin{entrybody}
-\item Designed and implemented creative statistical population scaling functions
-\item Employed standard software engineering principles and wrote thorough documentation
+\item
+    Designed and implemented novel statistical population scaling functions applicable to
+    real-world data
+\item
+    Employed standard software engineering principles and wrote comprehensive documentation to
+    create a modular and sustainable code base
 \end{entrybody}
 
 \entrytitle{OthelloBot \href{https://github.com/xtevenx/othello-bot}{\faGithub}} %
     {Computer program that plays Reversi}{September 2018 – April 2019}
 \begin{entrybody}
-\item Experimented with Convolutional Neural Network architectures using the Keras API
 \item  % 30605 positions/sec compared to 13137 positions/sec
     Used a bitwise game board representation along with Cython to increase performance by 233\%
-    compared to a traditional implementation in pure Python
+    compared to an array-based implementation in pure Python
 \item  % 29/36 on one line per 4 starting moves up to move 10 (based on NTest opening book)
-    Achieved 80.6\% best move prediction accuracy with only 0.01\% of the search space
+    Experimented with various neural network architectures using the Keras API to achieve 80.6\%
+    best move prediction accuracy with only 0.01\% of the search space
 \end{entrybody}
 
 
@@ -98,14 +114,17 @@ Recreational competitive programmer; excellent at converting abstract concepts i
 \entrytitle{Simon Fraser University}{Bachelor of Computing Science}{September 2020 – Present}
 \begin{entrybody}
 \item Received 100\% in ``Data Structures and Programming''
+\item Cumulative GPA: 3.97
 \end{entrybody}
 
 
 \section{Awards}
 
+\entrytitle{President's Honor Roll}{4.13 GPA}{May 2022} \entrytitleskip
 \entrytitlesimple{Undergraduate Open Scholarship}{January 2022} \entrytitleskip
 \entrytitlesimple{Undergraduate Open Scholarship}{September 2021} \entrytitleskip
-\entrytitle{President's Honor Roll}{4.02 GPA}{May 2021}
+\entrytitle{President's Honor Roll}{4.02 GPA}{May 2021} \entrytitleskip
+\entrytitlesimple{Canadian Computing Competition: Student Honour Roll}{March 2020}
 
 
 \end{document}
